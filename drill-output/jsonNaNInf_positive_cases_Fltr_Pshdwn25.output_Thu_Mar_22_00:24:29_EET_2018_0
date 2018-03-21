@@ -1,0 +1,1513 @@
+00-00    Screen
+00-01      ProjectAllowDup(**=[$0], **0=[$1])
+00-02        Project(T15¦¦**=[$0], T16¦¦**=[$3])
+00-03          HashJoin(condition=[AND(=($1, $4), =($2, $5))], joinType=[inner])
+00-05            Project(T15¦¦**=[$0], y=[$1], m=[$2])
+00-07              Scan(groupscan=[ParquetGroupScan [entries=[ReadEntryWithPath [path=maprfs:///drill/testdata/ctas/parquet/DRILL_6173/tab1]], selectionRoot=maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1, numFiles=1, numRowGroups=16, usedMetadataFile=false, columns=[`**`]]])
+00-04            Project(T16¦¦**=[$0], $f1=[ITEM($0, 'y')], $f2=[ITEM($0, 'm')])
+00-06              Project(T16¦¦**=[$0], y=[$1], m=[$2])
+00-08                Scan(groupscan=[ParquetGroupScan [entries=[ReadEntryWithPath [path=/drill/testdata/ctas/parquet/DRILL_6173/tab2/0_0_1.parquet]], selectionRoot=maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab2, numFiles=1, numRowGroups=1, usedMetadataFile=false, columns=[`**`]]])
+	{
+  "head" : {
+    "version" : 1,
+    "generator" : {
+      "type" : "ExplainHandler",
+      "info" : ""
+    },
+    "type" : "APACHE_DRILL_PHYSICAL",
+    "options" : [ ],
+    "queue" : 0,
+    "hasResourcePlan" : false,
+    "resultMode" : "EXEC"
+  },
+  "graph" : [ {
+    "pop" : "parquet-scan",
+    "@id" : 8,
+    "userName" : "root",
+    "entries" : [ {
+      "path" : "/drill/testdata/ctas/parquet/DRILL_6173/tab2/0_0_1.parquet"
+    } ],
+    "storage" : {
+      "type" : "file",
+      "enabled" : true,
+      "connection" : "maprfs:///",
+      "config" : null,
+      "workspaces" : {
+        "root" : {
+          "location" : "/",
+          "writable" : false,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tmp" : {
+          "location" : "/tmp",
+          "writable" : true,
+          "defaultInputFormat" : "csv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDir" : {
+          "location" : "/drill/testdata/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirAmplab" : {
+          "location" : "/drill/testdata/amplab",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirInformationSchema" : {
+          "location" : "/drill/testdata/information-schema",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirUdfs" : {
+          "location" : "/drill/testdata/udfs/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirP1" : {
+          "location" : "/drill/testdata/p1tests",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch10Parquet" : {
+          "location" : "/drill/testdata/tpch10",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirSchemaChangeEmptyBatch" : {
+          "location" : "/drill/testdata/schema_change_empty_batch/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "Join" : {
+          "location" : "/drill/testdata/join",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtJson" : {
+          "location" : "/drill/testdata/no-extension/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtParquet" : {
+          "location" : "/drill/testdata/no-extension/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtParquetNull" : {
+          "location" : "/drill/testdata/no-extension/parquet",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtText" : {
+          "location" : "/drill/testdata/no-extension/text",
+          "writable" : true,
+          "defaultInputFormat" : "psv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirExchanges" : {
+          "location" : "/drill/testdata/exchanges_test",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "TpcHMulti" : {
+          "location" : "/drill/testdata/tpch-multi",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "TpcHMulti100" : {
+          "location" : "/drill/testdata/SF100",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "TpcHMulti1" : {
+          "location" : "/drill/testdata/tpch_SF1",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirExplicit" : {
+          "location" : "/drill/testdata/explicit_cast",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImplicit" : {
+          "location" : "/drill/testdata/implicit_cast",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImplicit1" : {
+          "location" : "/drill/testdata/implicit_cast",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMondrian" : {
+          "location" : "/user/root/mondrian",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirDatetime" : {
+          "location" : "/drill/testdata/datetime/datasources",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirViews" : {
+          "location" : "/drill/testdata/views/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirNumerical" : {
+          "location" : "/drill/testdata/numerical/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirJson" : {
+          "location" : "/drill/testdata/json_storage/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTestNewWS" : {
+          "location" : "/drill/testdata/newWS/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch01Text" : {
+          "location" : "/drill/testdata/Tpch0.01/text/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch01Json" : {
+          "location" : "/drill/testdata/Tpch0.01/json/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch01Parquet" : {
+          "location" : "/drill/testdata/Tpch0.01/parquet/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirConvert" : {
+          "location" : "/drill/testdata/convert",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch100Text" : {
+          "location" : "/drill/testdata/tpch100/text/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch100Parquet" : {
+          "location" : "/drill/testdata/tpch100/parquet",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirMondrian" : {
+          "location" : "/drill/testdata/mondrian",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirComplexJson" : {
+          "location" : "/drill/testdata/complex/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirAdvancedComplexJson" : {
+          "location" : "/drill/testdata/complex_type/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirComplexParquet" : {
+          "location" : "/drill/testdata/complex/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "identifiers" : {
+          "location" : "/drill/testdata/identifiers",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "aggregation" : {
+          "location" : "/drill/testdata/aggregation",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "joins" : {
+          "location" : "/drill/testdata/joins",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "subqueries" : {
+          "location" : "/drill/testdata/subqueries",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctas" : {
+          "location" : "/drill/testdata/ctas",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctas_parquet" : {
+          "location" : "/drill/testdata/ctas/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "union_all" : {
+          "location" : "/drill/testdata/union_all",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "union" : {
+          "location" : "/drill/testdata/union",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "window_functions" : {
+          "location" : "/drill/testdata/window_functions",
+          "writable" : true,
+          "defaultInputFormat" : "csv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "wideStringsParquet5000Width1000rows" : {
+          "location" : "/drill/testdata/data-shapes/wide-columns/5000/1000rows/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "wideStringsParquet5000Width100000rows" : {
+          "location" : "/drill/testdata/data-shapes/wide-columns/5000/100000rows/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "more-columns" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "flatten_operators" : {
+          "location" : "/drill/testdata/flatten_operators/2rows",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "flatten_operators_100000rows" : {
+          "location" : "/drill/testdata/flatten_operators/100000rows",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "flatten_operators_schema_changes" : {
+          "location" : "/drill/testdata/flatten_operators/schema_changes",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "json_parquet_json" : {
+          "location" : "/drill/testdata/json_parquet_json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "json_public_datasets" : {
+          "location" : "/drill/testdata/json_public",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "json_all_text_mode" : {
+          "location" : "/drill/testdata/json_all_text_mode",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "cross-sources" : {
+          "location" : "/drill/testdata/cross-sources",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch_sf1_parquet" : {
+          "location" : "/drill/testdata/tpch_sf1/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch_sf1_json" : {
+          "location" : "/drill/testdata/tpch_sf1/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch_sf1_text" : {
+          "location" : "/drill/testdata/tpch_sf1/text",
+          "writable" : true,
+          "defaultInputFormat" : "dsv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_parquet" : {
+          "location" : "/drill/testdata/tpcds_sf1/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_parquet_views" : {
+          "location" : "/drill/testdata/tpcds_sf1/parquet/views",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_text" : {
+          "location" : "/drill/testdata/tpcds_sf1/text",
+          "writable" : true,
+          "defaultInputFormat" : "dsv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_text_views" : {
+          "location" : "/drill/testdata/tpcds_sf1/text/views",
+          "writable" : true,
+          "defaultInputFormat" : "dsv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_json" : {
+          "location" : "/drill/testdata/tpcds_sf1/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_json_views" : {
+          "location" : "/drill/testdata/tpcds_sf1/json/views",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf100_parquet" : {
+          "location" : "/drill/testdata/tpcds_sf100/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf100_parquet_views" : {
+          "location" : "/drill/testdata/tpcds_sf100/parquet/views",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "kvgenflatten-nulls" : {
+          "location" : "/drill/testdata/kvgenflatten-nulls",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctas_flatten" : {
+          "location" : "/drill/testdata/ctas_flatten",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "moreColumnsText" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/text",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "moreColumnsParquet" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "moreColumnsJson" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/json",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "morefiles" : {
+          "location" : "/drill/testdata/morefiles",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctasAutoPartition" : {
+          "location" : "/drill/testdata/ctas_auto_partition",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpchSinglePartition" : {
+          "location" : "/drill/testdata/ctas_auto_partition/tpch_single_partition",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpchSinglePartition1" : {
+          "location" : "/drill/testdata/ctas_auto_partition/tpch_single_partition1",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "extended_json" : {
+          "location" : "/drill/testdata/extended_json",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_5000files" : {
+          "location" : "/drill/testdata/tpch100_5000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_10000files" : {
+          "location" : "/drill/testdata/tpch100_10000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_20000files" : {
+          "location" : "/drill/testdata/tpch100_20000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_50000files" : {
+          "location" : "/drill/testdata/tpch100_50000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_100000files" : {
+          "location" : "/drill/testdata/tpch100_100000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_150000files" : {
+          "location" : "/drill/testdata/tpch100_150000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_200000files" : {
+          "location" : "/drill/testdata/tpch100_200000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_autopartitioned_100000files" : {
+          "location" : "/drill/testdata/tpch100_autopartitioned_100000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_dirpartitioned_200000files" : {
+          "location" : "/drill/testdata/tpch100_dir_partitioned_200000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_dirpartitioned_50000files" : {
+          "location" : "/drill/testdata/tpch100_dir_partitioned_50000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImpersonation" : {
+          "location" : "/drill/testdata/impersonation",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImpersonationThreecsvtables" : {
+          "location" : "/drill/testdata/impersonation/threecsvtables",
+          "writable" : true,
+          "defaultInputFormat" : "csv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImpersonationThreeparquettables" : {
+          "location" : "/drill/testdata/impersonation/threeparquettables",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "metadata_caching" : {
+          "location" : "/drill/testdata/metadata_caching",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1" : {
+          "location" : "/drill/testdata/tpcds1_hive1",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1dot2" : {
+          "location" : "/drill/testdata/tpcds1_hive1dot2",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive0dot13" : {
+          "location" : "/drill/testdata/tpcds1_hive0dot13",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "hive_storage" : {
+          "location" : "/drill/testdata/hive_storage",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "hive_functions_nonhivedata" : {
+          "location" : "/drill/testdata/hive_functions_nonhivedata",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMinMaxDir" : {
+          "location" : "/drill/testdata/min_max_dir",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMinMaxDir1" : {
+          "location" : "/drill/testdata/min_max_dir/2016",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMinMaxDirCache" : {
+          "location" : "/drill/testdata/min_max_dir_metadatacache",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "droptable" : {
+          "location" : "/drill/testdata/droptable",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "metadata_caching_pp" : {
+          "location" : "/drill/testdata/metadata_caching_pp",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1dot2_parquet_withdate" : {
+          "location" : "/drill/testdata/tpcds1_hive1dot2_parquet_withdate",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1dot2_mc_withdate" : {
+          "location" : "/drill/testdata/tpcds1_hive1dot2_mc_withdate",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive2dot1_withdate" : {
+          "location" : "/drill/testdata/tpcds1_hive2dot1_withdate",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drill" : {
+          "location" : "/drill",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        }
+      },
+      "formats" : {
+        "psv" : {
+          "type" : "text",
+          "extensions" : [ "tbl" ],
+          "delimiter" : "|"
+        },
+        "dsv" : {
+          "type" : "text",
+          "extensions" : [ "dat" ],
+          "delimiter" : "|"
+        },
+        "csv" : {
+          "type" : "text",
+          "extensions" : [ "csv" ],
+          "delimiter" : ","
+        },
+        "tsv" : {
+          "type" : "text",
+          "extensions" : [ "tsv" ],
+          "delimiter" : "\t"
+        },
+        "parquet" : {
+          "type" : "parquet"
+        },
+        "json" : {
+          "type" : "json",
+          "extensions" : [ "json" ]
+        },
+        "abc" : {
+          "type" : "json",
+          "extensions" : [ "abc" ]
+        },
+        "tcsv" : {
+          "type" : "text",
+          "extensions" : [ "tcsv" ],
+          "extractHeader" : true,
+          "delimiter" : ","
+        }
+      }
+    },
+    "format" : {
+      "type" : "parquet"
+    },
+    "columns" : [ "`**`" ],
+    "selectionRoot" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab2",
+    "cost" : 2.0
+  }, {
+    "pop" : "project",
+    "@id" : 6,
+    "exprs" : [ {
+      "ref" : "`T16¦¦**`",
+      "expr" : "`**`"
+    }, {
+      "ref" : "`y`",
+      "expr" : "`y`"
+    }, {
+      "ref" : "`m`",
+      "expr" : "`m`"
+    } ],
+    "child" : 8,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 2.0
+  }, {
+    "pop" : "project",
+    "@id" : 4,
+    "exprs" : [ {
+      "ref" : "`T16¦¦**`",
+      "expr" : "`T16¦¦**`"
+    }, {
+      "ref" : "`$f1`",
+      "expr" : "`T16¦¦y`"
+    }, {
+      "ref" : "`$f2`",
+      "expr" : "`T16¦¦m`"
+    } ],
+    "child" : 6,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 2.0
+  }, {
+    "pop" : "parquet-scan",
+    "@id" : 7,
+    "userName" : "root",
+    "entries" : [ {
+      "path" : "maprfs:///drill/testdata/ctas/parquet/DRILL_6173/tab1"
+    } ],
+    "storage" : {
+      "type" : "file",
+      "enabled" : true,
+      "connection" : "maprfs:///",
+      "config" : null,
+      "workspaces" : {
+        "root" : {
+          "location" : "/",
+          "writable" : false,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tmp" : {
+          "location" : "/tmp",
+          "writable" : true,
+          "defaultInputFormat" : "csv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDir" : {
+          "location" : "/drill/testdata/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirAmplab" : {
+          "location" : "/drill/testdata/amplab",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirInformationSchema" : {
+          "location" : "/drill/testdata/information-schema",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirUdfs" : {
+          "location" : "/drill/testdata/udfs/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirP1" : {
+          "location" : "/drill/testdata/p1tests",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch10Parquet" : {
+          "location" : "/drill/testdata/tpch10",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirSchemaChangeEmptyBatch" : {
+          "location" : "/drill/testdata/schema_change_empty_batch/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "Join" : {
+          "location" : "/drill/testdata/join",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtJson" : {
+          "location" : "/drill/testdata/no-extension/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtParquet" : {
+          "location" : "/drill/testdata/no-extension/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtParquetNull" : {
+          "location" : "/drill/testdata/no-extension/parquet",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "NoExtText" : {
+          "location" : "/drill/testdata/no-extension/text",
+          "writable" : true,
+          "defaultInputFormat" : "psv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirExchanges" : {
+          "location" : "/drill/testdata/exchanges_test",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "TpcHMulti" : {
+          "location" : "/drill/testdata/tpch-multi",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "TpcHMulti100" : {
+          "location" : "/drill/testdata/SF100",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "TpcHMulti1" : {
+          "location" : "/drill/testdata/tpch_SF1",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirExplicit" : {
+          "location" : "/drill/testdata/explicit_cast",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImplicit" : {
+          "location" : "/drill/testdata/implicit_cast",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImplicit1" : {
+          "location" : "/drill/testdata/implicit_cast",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMondrian" : {
+          "location" : "/user/root/mondrian",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirDatetime" : {
+          "location" : "/drill/testdata/datetime/datasources",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirViews" : {
+          "location" : "/drill/testdata/views/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirNumerical" : {
+          "location" : "/drill/testdata/numerical/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirJson" : {
+          "location" : "/drill/testdata/json_storage/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTestNewWS" : {
+          "location" : "/drill/testdata/newWS/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch01Text" : {
+          "location" : "/drill/testdata/Tpch0.01/text/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch01Json" : {
+          "location" : "/drill/testdata/Tpch0.01/json/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch01Parquet" : {
+          "location" : "/drill/testdata/Tpch0.01/parquet/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirConvert" : {
+          "location" : "/drill/testdata/convert",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch100Text" : {
+          "location" : "/drill/testdata/tpch100/text/",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirTpch100Parquet" : {
+          "location" : "/drill/testdata/tpch100/parquet",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirMondrian" : {
+          "location" : "/drill/testdata/mondrian",
+          "writable" : true,
+          "defaultInputFormat" : null,
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirComplexJson" : {
+          "location" : "/drill/testdata/complex/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirAdvancedComplexJson" : {
+          "location" : "/drill/testdata/complex_type/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirComplexParquet" : {
+          "location" : "/drill/testdata/complex/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "identifiers" : {
+          "location" : "/drill/testdata/identifiers",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "aggregation" : {
+          "location" : "/drill/testdata/aggregation",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "joins" : {
+          "location" : "/drill/testdata/joins",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "subqueries" : {
+          "location" : "/drill/testdata/subqueries",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctas" : {
+          "location" : "/drill/testdata/ctas",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctas_parquet" : {
+          "location" : "/drill/testdata/ctas/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "union_all" : {
+          "location" : "/drill/testdata/union_all",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "union" : {
+          "location" : "/drill/testdata/union",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "window_functions" : {
+          "location" : "/drill/testdata/window_functions",
+          "writable" : true,
+          "defaultInputFormat" : "csv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "wideStringsParquet5000Width1000rows" : {
+          "location" : "/drill/testdata/data-shapes/wide-columns/5000/1000rows/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "wideStringsParquet5000Width100000rows" : {
+          "location" : "/drill/testdata/data-shapes/wide-columns/5000/100000rows/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "more-columns" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "flatten_operators" : {
+          "location" : "/drill/testdata/flatten_operators/2rows",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "flatten_operators_100000rows" : {
+          "location" : "/drill/testdata/flatten_operators/100000rows",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "flatten_operators_schema_changes" : {
+          "location" : "/drill/testdata/flatten_operators/schema_changes",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "json_parquet_json" : {
+          "location" : "/drill/testdata/json_parquet_json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "json_public_datasets" : {
+          "location" : "/drill/testdata/json_public",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "json_all_text_mode" : {
+          "location" : "/drill/testdata/json_all_text_mode",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "cross-sources" : {
+          "location" : "/drill/testdata/cross-sources",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch_sf1_parquet" : {
+          "location" : "/drill/testdata/tpch_sf1/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch_sf1_json" : {
+          "location" : "/drill/testdata/tpch_sf1/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch_sf1_text" : {
+          "location" : "/drill/testdata/tpch_sf1/text",
+          "writable" : true,
+          "defaultInputFormat" : "dsv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_parquet" : {
+          "location" : "/drill/testdata/tpcds_sf1/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_parquet_views" : {
+          "location" : "/drill/testdata/tpcds_sf1/parquet/views",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_text" : {
+          "location" : "/drill/testdata/tpcds_sf1/text",
+          "writable" : true,
+          "defaultInputFormat" : "dsv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_text_views" : {
+          "location" : "/drill/testdata/tpcds_sf1/text/views",
+          "writable" : true,
+          "defaultInputFormat" : "dsv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_json" : {
+          "location" : "/drill/testdata/tpcds_sf1/json",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf1_json_views" : {
+          "location" : "/drill/testdata/tpcds_sf1/json/views",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf100_parquet" : {
+          "location" : "/drill/testdata/tpcds_sf100/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds_sf100_parquet_views" : {
+          "location" : "/drill/testdata/tpcds_sf100/parquet/views",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "kvgenflatten-nulls" : {
+          "location" : "/drill/testdata/kvgenflatten-nulls",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctas_flatten" : {
+          "location" : "/drill/testdata/ctas_flatten",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "moreColumnsText" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/text",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "moreColumnsParquet" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/parquet",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "moreColumnsJson" : {
+          "location" : "/drill/testdata/data-shapes/more-columns/json",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "morefiles" : {
+          "location" : "/drill/testdata/morefiles",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "ctasAutoPartition" : {
+          "location" : "/drill/testdata/ctas_auto_partition",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpchSinglePartition" : {
+          "location" : "/drill/testdata/ctas_auto_partition/tpch_single_partition",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpchSinglePartition1" : {
+          "location" : "/drill/testdata/ctas_auto_partition/tpch_single_partition1",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "extended_json" : {
+          "location" : "/drill/testdata/extended_json",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_5000files" : {
+          "location" : "/drill/testdata/tpch100_5000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_10000files" : {
+          "location" : "/drill/testdata/tpch100_10000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_20000files" : {
+          "location" : "/drill/testdata/tpch100_20000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_50000files" : {
+          "location" : "/drill/testdata/tpch100_50000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_100000files" : {
+          "location" : "/drill/testdata/tpch100_100000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_150000files" : {
+          "location" : "/drill/testdata/tpch100_150000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_200000files" : {
+          "location" : "/drill/testdata/tpch100_200000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_autopartitioned_100000files" : {
+          "location" : "/drill/testdata/tpch100_autopartitioned_100000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_dirpartitioned_200000files" : {
+          "location" : "/drill/testdata/tpch100_dir_partitioned_200000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpch100_dirpartitioned_50000files" : {
+          "location" : "/drill/testdata/tpch100_dir_partitioned_50000files",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImpersonation" : {
+          "location" : "/drill/testdata/impersonation",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImpersonationThreecsvtables" : {
+          "location" : "/drill/testdata/impersonation/threecsvtables",
+          "writable" : true,
+          "defaultInputFormat" : "csv",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillTestDirImpersonationThreeparquettables" : {
+          "location" : "/drill/testdata/impersonation/threeparquettables",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "metadata_caching" : {
+          "location" : "/drill/testdata/metadata_caching",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1" : {
+          "location" : "/drill/testdata/tpcds1_hive1",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1dot2" : {
+          "location" : "/drill/testdata/tpcds1_hive1dot2",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive0dot13" : {
+          "location" : "/drill/testdata/tpcds1_hive0dot13",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "hive_storage" : {
+          "location" : "/drill/testdata/hive_storage",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "hive_functions_nonhivedata" : {
+          "location" : "/drill/testdata/hive_functions_nonhivedata",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMinMaxDir" : {
+          "location" : "/drill/testdata/min_max_dir",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMinMaxDir1" : {
+          "location" : "/drill/testdata/min_max_dir/2016",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drillMinMaxDirCache" : {
+          "location" : "/drill/testdata/min_max_dir_metadatacache",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "droptable" : {
+          "location" : "/drill/testdata/droptable",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "metadata_caching_pp" : {
+          "location" : "/drill/testdata/metadata_caching_pp",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1dot2_parquet_withdate" : {
+          "location" : "/drill/testdata/tpcds1_hive1dot2_parquet_withdate",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive1dot2_mc_withdate" : {
+          "location" : "/drill/testdata/tpcds1_hive1dot2_mc_withdate",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "tpcds1_hive2dot1_withdate" : {
+          "location" : "/drill/testdata/tpcds1_hive2dot1_withdate",
+          "writable" : true,
+          "defaultInputFormat" : "parquet",
+          "allowAccessOutsideWorkspace" : false
+        },
+        "drill" : {
+          "location" : "/drill",
+          "writable" : true,
+          "defaultInputFormat" : "json",
+          "allowAccessOutsideWorkspace" : false
+        }
+      },
+      "formats" : {
+        "psv" : {
+          "type" : "text",
+          "extensions" : [ "tbl" ],
+          "delimiter" : "|"
+        },
+        "dsv" : {
+          "type" : "text",
+          "extensions" : [ "dat" ],
+          "delimiter" : "|"
+        },
+        "csv" : {
+          "type" : "text",
+          "extensions" : [ "csv" ],
+          "delimiter" : ","
+        },
+        "tsv" : {
+          "type" : "text",
+          "extensions" : [ "tsv" ],
+          "delimiter" : "\t"
+        },
+        "parquet" : {
+          "type" : "parquet"
+        },
+        "json" : {
+          "type" : "json",
+          "extensions" : [ "json" ]
+        },
+        "abc" : {
+          "type" : "json",
+          "extensions" : [ "abc" ]
+        },
+        "tcsv" : {
+          "type" : "text",
+          "extensions" : [ "tcsv" ],
+          "extractHeader" : true,
+          "delimiter" : ","
+        }
+      }
+    },
+    "format" : {
+      "type" : "parquet"
+    },
+    "columns" : [ "`**`" ],
+    "selectionRoot" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1",
+    "cost" : 20.0
+  }, {
+    "pop" : "project",
+    "@id" : 5,
+    "exprs" : [ {
+      "ref" : "`T15¦¦**`",
+      "expr" : "`**`"
+    }, {
+      "ref" : "`y`",
+      "expr" : "`y`"
+    }, {
+      "ref" : "`m`",
+      "expr" : "`m`"
+    } ],
+    "child" : 7,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 20.0
+  }, {
+    "pop" : "hash-join",
+    "@id" : 3,
+    "left" : 5,
+    "right" : 4,
+    "conditions" : [ {
+      "relationship" : "EQUALS",
+      "left" : "`y`",
+      "right" : "`$f1`"
+    }, {
+      "relationship" : "EQUALS",
+      "left" : "`m`",
+      "right" : "`$f2`"
+    } ],
+    "joinType" : "INNER",
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 20.0
+  }, {
+    "pop" : "project",
+    "@id" : 2,
+    "exprs" : [ {
+      "ref" : "`T15¦¦**`",
+      "expr" : "`T15¦¦**`"
+    }, {
+      "ref" : "`T16¦¦**`",
+      "expr" : "`T16¦¦**`"
+    } ],
+    "child" : 3,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 20.0
+  }, {
+    "pop" : "project",
+    "@id" : 1,
+    "exprs" : [ {
+      "ref" : "`**`",
+      "expr" : "`T15¦¦**`"
+    }, {
+      "ref" : "`**0`",
+      "expr" : "`T16¦¦**`"
+    } ],
+    "child" : 2,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 20.0
+  }, {
+    "pop" : "screen",
+    "@id" : 0,
+    "child" : 1,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 20.0
+  } ]
+}

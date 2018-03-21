@@ -1,0 +1,942 @@
+00-00    Screen
+00-01      Project(itm=[$0], y=[$1], m=[$2], category=[$3])
+00-02        Project(itm=[$0], y=[$1], m=[$2], category=[$3])
+00-03          HashJoin(condition=[=($3, $4)], joinType=[inner])
+00-05            Project(itm=[$0], y=[$1], m=[$2], category=[$3])
+00-07              HashJoin(condition=[=($1, $4)], joinType=[inner])
+00-10                Scan(groupscan=[HiveScan [table=Table(dbName:default, tableName:h_tab1), columns=[`**`], numPartitions=7, partitions= [Partition(values:[1987, 5, 1]), Partition(values:[1987, 7, 1]), Partition(values:[1988, 11, 1]), Partition(values:[1988, 12, 1]), Partition(values:[1990, 4, 1]), Partition(values:[1990, 5, 1]), Partition(values:[1991, 3, 1])], inputDirectories=[maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/1, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/3, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/5, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/7, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/9, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/11, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/13]]])
+00-09                Project(y0=[$0], $f1=[$1])
+00-12                  StreamAgg(group=[{0}], agg#0=[MIN($1)])
+00-14                    Sort(sort0=[$0], dir0=[ASC])
+00-16                      Project(y=[$0], $f0=[true])
+00-18                        Scan(groupscan=[HiveScan [table=Table(dbName:default, tableName:h_tab2), columns=[`y`], numPartitions=2, partitions= [Partition(values:[1987, 5]), Partition(values:[1987, 7])], inputDirectories=[maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab2/1, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab2/2]]])
+00-04            Project(category0=[$0])
+00-06              Project(category=[$0])
+00-08                StreamAgg(group=[{0}], agg#0=[MIN($1)])
+00-11                  Sort(sort0=[$0], dir0=[ASC])
+00-13                    Project(category=[$0], $f0=[true])
+00-15                      SelectionVectorRemover
+00-17                        Filter(condition=[=($0, 1)])
+00-19                          Scan(groupscan=[HiveScan [table=Table(dbName:default, tableName:h_tab3), columns=[`category`], numPartitions=7, partitions= [Partition(values:[sub1]), Partition(values:[sub2]), Partition(values:[sub3]), Partition(values:[sub4]), Partition(values:[sub5]), Partition(values:[sub6]), Partition(values:[sub7])], inputDirectories=[maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/1, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/2, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/3, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/4, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/5, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/6, maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/7]]])
+	{
+  "head" : {
+    "version" : 1,
+    "generator" : {
+      "type" : "ExplainHandler",
+      "info" : ""
+    },
+    "type" : "APACHE_DRILL_PHYSICAL",
+    "options" : [ ],
+    "queue" : 0,
+    "hasResourcePlan" : false,
+    "resultMode" : "EXEC"
+  },
+  "graph" : [ {
+    "pop" : "hive-scan",
+    "@id" : 19,
+    "userName" : "root",
+    "hiveReadEntry" : {
+      "table" : {
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "owner" : "mapr",
+        "createTime" : 1521671599,
+        "lastAccessTime" : 0,
+        "retention" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "partitionKeys" : [ {
+          "name" : "sub_category",
+          "type" : "string",
+          "comment" : null
+        } ],
+        "parameters" : {
+          "EXTERNAL" : "TRUE",
+          "transient_lastDdlTime" : "1521671599"
+        },
+        "viewOriginalText" : null,
+        "viewExpandedText" : null,
+        "tableType" : "EXTERNAL_TABLE",
+        "columnsCache" : {
+          "keys" : [ [ {
+            "name" : "category",
+            "type" : "int",
+            "comment" : null
+          } ] ]
+        }
+      },
+      "partitions" : [ {
+        "values" : [ "sub1" ],
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "createTime" : 1521671600,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/1",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671600",
+          "totalSize" : "411",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "sub2" ],
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "createTime" : 1521671600,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/2",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671600",
+          "totalSize" : "411",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "sub3" ],
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "createTime" : 1521671600,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/3",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671600",
+          "totalSize" : "411",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "sub4" ],
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "createTime" : 1521671600,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/4",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671600",
+          "totalSize" : "411",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "sub5" ],
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "createTime" : 1521671600,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/5",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671600",
+          "totalSize" : "451",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "sub6" ],
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "createTime" : 1521671600,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/6",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671600",
+          "totalSize" : "423",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "sub7" ],
+        "tableName" : "h_tab3",
+        "dbName" : "default",
+        "createTime" : 1521671601,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab3/7",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671601",
+          "totalSize" : "423",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      } ]
+    },
+    "hiveStoragePluginConfig" : {
+      "type" : "hive",
+      "enabled" : true,
+      "configProps" : {
+        "hive.metastore.uris" : "thrift://192.168.122.199:9083",
+        "hive.metastore.sasl.enabled" : "false",
+        "hbase.zookeeper.quorum" : "192.168.122.199",
+        "hbase.zookeeper.property.clientPort" : "5181"
+      }
+    },
+    "columns" : [ "`category`" ],
+    "cost" : 7.0
+  }, {
+    "pop" : "filter",
+    "@id" : 17,
+    "child" : 19,
+    "expr" : "equal(`category`, 1) ",
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.05
+  }, {
+    "pop" : "selection-vector-remover",
+    "@id" : 15,
+    "child" : 17,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.05
+  }, {
+    "pop" : "project",
+    "@id" : 13,
+    "exprs" : [ {
+      "ref" : "`category`",
+      "expr" : "`category`"
+    }, {
+      "ref" : "`$f0`",
+      "expr" : "true"
+    } ],
+    "child" : 15,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.05
+  }, {
+    "pop" : "external-sort",
+    "@id" : 11,
+    "child" : 13,
+    "orderings" : [ {
+      "order" : "ASC",
+      "expr" : "`category`",
+      "nullDirection" : "LAST"
+    } ],
+    "reverse" : false,
+    "initialAllocation" : 20000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.05
+  }, {
+    "pop" : "streaming-aggregate",
+    "@id" : 8,
+    "child" : 11,
+    "keys" : [ {
+      "ref" : "`category`",
+      "expr" : "`category`"
+    } ],
+    "exprs" : [ {
+      "ref" : "`$f1`",
+      "expr" : "min(`$f0`) "
+    } ],
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 0.525
+  }, {
+    "pop" : "project",
+    "@id" : 6,
+    "exprs" : [ {
+      "ref" : "`category`",
+      "expr" : "`category`"
+    } ],
+    "child" : 8,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.0
+  }, {
+    "pop" : "project",
+    "@id" : 4,
+    "exprs" : [ {
+      "ref" : "`category0`",
+      "expr" : "`category`"
+    } ],
+    "child" : 6,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.0
+  }, {
+    "pop" : "hive-scan",
+    "@id" : 10,
+    "userName" : "root",
+    "hiveReadEntry" : {
+      "table" : {
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "owner" : "mapr",
+        "createTime" : 1521671597,
+        "lastAccessTime" : 0,
+        "retention" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "partitionKeys" : [ {
+          "name" : "y",
+          "type" : "int",
+          "comment" : null
+        }, {
+          "name" : "m",
+          "type" : "int",
+          "comment" : null
+        }, {
+          "name" : "category",
+          "type" : "int",
+          "comment" : null
+        } ],
+        "parameters" : {
+          "EXTERNAL" : "TRUE",
+          "transient_lastDdlTime" : "1521671597"
+        },
+        "viewOriginalText" : null,
+        "viewExpandedText" : null,
+        "tableType" : "EXTERNAL_TABLE",
+        "columnsCache" : {
+          "keys" : [ [ {
+            "name" : "itm",
+            "type" : "int",
+            "comment" : null
+          } ] ]
+        }
+      },
+      "partitions" : [ {
+        "values" : [ "1987", "5", "1" ],
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "createTime" : 1521671597,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/1",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671597",
+          "totalSize" : "577",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "1987", "7", "1" ],
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "createTime" : 1521671597,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/3",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671597",
+          "totalSize" : "593",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "1988", "11", "1" ],
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "createTime" : 1521671597,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/5",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671597",
+          "totalSize" : "593",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "1988", "12", "1" ],
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "createTime" : 1521671598,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/7",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671598",
+          "totalSize" : "593",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "1990", "4", "1" ],
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "createTime" : 1521671598,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/9",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671598",
+          "totalSize" : "577",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "1990", "5", "1" ],
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "createTime" : 1521671598,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/11",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671598",
+          "totalSize" : "577",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "1991", "3", "1" ],
+        "tableName" : "h_tab1",
+        "dbName" : "default",
+        "createTime" : 1521671598,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab1/13",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671598",
+          "totalSize" : "577",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      } ]
+    },
+    "hiveStoragePluginConfig" : {
+      "type" : "hive",
+      "enabled" : true,
+      "configProps" : {
+        "hive.metastore.uris" : "thrift://192.168.122.199:9083",
+        "hive.metastore.sasl.enabled" : "false",
+        "hbase.zookeeper.quorum" : "192.168.122.199",
+        "hbase.zookeeper.property.clientPort" : "5181"
+      }
+    },
+    "columns" : [ "`**`" ],
+    "cost" : 7.0
+  }, {
+    "pop" : "hive-scan",
+    "@id" : 18,
+    "userName" : "root",
+    "hiveReadEntry" : {
+      "table" : {
+        "tableName" : "h_tab2",
+        "dbName" : "default",
+        "owner" : "mapr",
+        "createTime" : 1521671599,
+        "lastAccessTime" : 0,
+        "retention" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab2",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "partitionKeys" : [ {
+          "name" : "y",
+          "type" : "int",
+          "comment" : null
+        }, {
+          "name" : "m",
+          "type" : "int",
+          "comment" : null
+        } ],
+        "parameters" : {
+          "EXTERNAL" : "TRUE",
+          "transient_lastDdlTime" : "1521671599"
+        },
+        "viewOriginalText" : null,
+        "viewExpandedText" : null,
+        "tableType" : "EXTERNAL_TABLE",
+        "columnsCache" : {
+          "keys" : [ [ {
+            "name" : "itm",
+            "type" : "int",
+            "comment" : null
+          }, {
+            "name" : "category",
+            "type" : "int",
+            "comment" : null
+          } ] ]
+        }
+      },
+      "partitions" : [ {
+        "values" : [ "1987", "5" ],
+        "tableName" : "h_tab2",
+        "dbName" : "default",
+        "createTime" : 1521671599,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab2/1",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671599",
+          "totalSize" : "593",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      }, {
+        "values" : [ "1987", "7" ],
+        "tableName" : "h_tab2",
+        "dbName" : "default",
+        "createTime" : 1521671599,
+        "lastAccessTime" : 0,
+        "sd" : {
+          "location" : "maprfs:/drill/testdata/ctas/parquet/DRILL_6173/tab2/2",
+          "inputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+          "outputFormat" : "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+          "compressed" : false,
+          "numBuckets" : -1,
+          "serDeInfo" : {
+            "name" : null,
+            "serializationLib" : "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+            "parameters" : {
+              "serialization.format" : "|",
+              "field.delim" : "|"
+            }
+          },
+          "sortCols" : [ ],
+          "parameters" : { }
+        },
+        "parameters" : {
+          "transient_lastDdlTime" : "1521671599",
+          "totalSize" : "625",
+          "numFiles" : "1"
+        },
+        "columnListIndex" : 0
+      } ]
+    },
+    "hiveStoragePluginConfig" : {
+      "type" : "hive",
+      "enabled" : true,
+      "configProps" : {
+        "hive.metastore.uris" : "thrift://192.168.122.199:9083",
+        "hive.metastore.sasl.enabled" : "false",
+        "hbase.zookeeper.quorum" : "192.168.122.199",
+        "hbase.zookeeper.property.clientPort" : "5181"
+      }
+    },
+    "columns" : [ "`y`" ],
+    "cost" : 2.0
+  }, {
+    "pop" : "project",
+    "@id" : 16,
+    "exprs" : [ {
+      "ref" : "`y`",
+      "expr" : "`y`"
+    }, {
+      "ref" : "`$f0`",
+      "expr" : "true"
+    } ],
+    "child" : 18,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 2.0
+  }, {
+    "pop" : "external-sort",
+    "@id" : 14,
+    "child" : 16,
+    "orderings" : [ {
+      "order" : "ASC",
+      "expr" : "`y`",
+      "nullDirection" : "LAST"
+    } ],
+    "reverse" : false,
+    "initialAllocation" : 20000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 2.0
+  }, {
+    "pop" : "streaming-aggregate",
+    "@id" : 12,
+    "child" : 14,
+    "keys" : [ {
+      "ref" : "`y`",
+      "expr" : "`y`"
+    } ],
+    "exprs" : [ {
+      "ref" : "`$f1`",
+      "expr" : "min(`$f0`) "
+    } ],
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.0
+  }, {
+    "pop" : "project",
+    "@id" : 9,
+    "exprs" : [ {
+      "ref" : "`y0`",
+      "expr" : "`y`"
+    }, {
+      "ref" : "`$f1`",
+      "expr" : "`$f1`"
+    } ],
+    "child" : 12,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 1.0
+  }, {
+    "pop" : "hash-join",
+    "@id" : 7,
+    "left" : 10,
+    "right" : 9,
+    "conditions" : [ {
+      "relationship" : "EQUALS",
+      "left" : "`y`",
+      "right" : "`y0`"
+    } ],
+    "joinType" : "INNER",
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 7.0
+  }, {
+    "pop" : "project",
+    "@id" : 5,
+    "exprs" : [ {
+      "ref" : "`itm`",
+      "expr" : "`itm`"
+    }, {
+      "ref" : "`y`",
+      "expr" : "`y`"
+    }, {
+      "ref" : "`m`",
+      "expr" : "`m`"
+    }, {
+      "ref" : "`category`",
+      "expr" : "`category`"
+    } ],
+    "child" : 7,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 7.0
+  }, {
+    "pop" : "hash-join",
+    "@id" : 3,
+    "left" : 5,
+    "right" : 4,
+    "conditions" : [ {
+      "relationship" : "EQUALS",
+      "left" : "`category`",
+      "right" : "`category0`"
+    } ],
+    "joinType" : "INNER",
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 7.0
+  }, {
+    "pop" : "project",
+    "@id" : 2,
+    "exprs" : [ {
+      "ref" : "`itm`",
+      "expr" : "`itm`"
+    }, {
+      "ref" : "`y`",
+      "expr" : "`y`"
+    }, {
+      "ref" : "`m`",
+      "expr" : "`m`"
+    }, {
+      "ref" : "`category`",
+      "expr" : "`category`"
+    } ],
+    "child" : 3,
+    "outputProj" : false,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 7.0
+  }, {
+    "pop" : "project",
+    "@id" : 1,
+    "exprs" : [ {
+      "ref" : "`itm`",
+      "expr" : "`itm`"
+    }, {
+      "ref" : "`y`",
+      "expr" : "`y`"
+    }, {
+      "ref" : "`m`",
+      "expr" : "`m`"
+    }, {
+      "ref" : "`category`",
+      "expr" : "`category`"
+    } ],
+    "child" : 2,
+    "outputProj" : true,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 7.0
+  }, {
+    "pop" : "screen",
+    "@id" : 0,
+    "child" : 1,
+    "initialAllocation" : 1000000,
+    "maxAllocation" : 10000000000,
+    "cost" : 7.0
+  } ]
+}

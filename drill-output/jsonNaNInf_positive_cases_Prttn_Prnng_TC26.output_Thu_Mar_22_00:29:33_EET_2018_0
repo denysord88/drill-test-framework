@@ -1,0 +1,85 @@
+0	VALIDATION ERROR: From line 2, column 32 to line 2, column 35: Object 'h_tab1' not found within 'hive'
+
+SQL Query null
+
+[Error Id: 1afca16b-bb17-460e-a542-0771c7133f00 on maprhost:31010]
+
+  (org.apache.calcite.runtime.CalciteContextException) From line 2, column 32 to line 2, column 35: Object 'h_tab1' not found within 'hive'
+    sun.reflect.GeneratedConstructorAccessor78.newInstance():-1
+    sun.reflect.DelegatingConstructorAccessorImpl.newInstance():45
+    java.lang.reflect.Constructor.newInstance():423
+    org.apache.calcite.runtime.Resources$ExInstWithCause.ex():463
+    org.apache.calcite.sql.SqlUtil.newContextException():803
+    org.apache.calcite.sql.SqlUtil.newContextException():788
+    org.apache.calcite.sql.validate.SqlValidatorImpl.newValidationError():4706
+    org.apache.calcite.sql.validate.IdentifierNamespace.resolveImpl():127
+    org.apache.calcite.sql.validate.IdentifierNamespace.validateImpl():177
+    org.apache.calcite.sql.validate.AbstractNamespace.validate():84
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace():947
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery():928
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom():2975
+    org.apache.drill.exec.planner.sql.SqlConverter$DrillValidator.validateFrom():265
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom():2960
+    org.apache.drill.exec.planner.sql.SqlConverter$DrillValidator.validateFrom():265
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateJoin():3011
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom():2969
+    org.apache.drill.exec.planner.sql.SqlConverter$DrillValidator.validateFrom():265
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateSelect():3219
+    org.apache.calcite.sql.validate.SelectNamespace.validateImpl():60
+    org.apache.calcite.sql.validate.AbstractNamespace.validate():84
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace():947
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery():928
+    org.apache.calcite.sql.SqlSelect.validate():226
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateScopedExpression():903
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validate():613
+    org.apache.drill.exec.planner.sql.SqlConverter.validate():189
+    org.apache.drill.exec.planner.sql.handlers.DefaultSqlHandler.validateNode():637
+    org.apache.drill.exec.planner.sql.handlers.DefaultSqlHandler.validateAndConvert():202
+    org.apache.drill.exec.planner.sql.handlers.ExplainHandler.getPlan():56
+    org.apache.drill.exec.planner.sql.DrillSqlWorker.getQueryPlan():146
+    org.apache.drill.exec.planner.sql.DrillSqlWorker.getPlan():84
+    org.apache.drill.exec.work.foreman.Foreman.runSQL():567
+    org.apache.drill.exec.work.foreman.Foreman.run():264
+    java.util.concurrent.ThreadPoolExecutor.runWorker():1149
+    java.util.concurrent.ThreadPoolExecutor$Worker.run():624
+    java.lang.Thread.run():748
+  Caused By (org.apache.calcite.sql.validate.SqlValidatorException) Object 'h_tab1' not found within 'hive'
+    sun.reflect.GeneratedConstructorAccessor77.newInstance():-1
+    sun.reflect.DelegatingConstructorAccessorImpl.newInstance():45
+    java.lang.reflect.Constructor.newInstance():423
+    org.apache.calcite.runtime.Resources$ExInstWithCause.ex():463
+    org.apache.calcite.runtime.Resources$ExInst.ex():572
+    org.apache.calcite.sql.SqlUtil.newContextException():803
+    org.apache.calcite.sql.SqlUtil.newContextException():788
+    org.apache.calcite.sql.validate.SqlValidatorImpl.newValidationError():4706
+    org.apache.calcite.sql.validate.IdentifierNamespace.resolveImpl():127
+    org.apache.calcite.sql.validate.IdentifierNamespace.validateImpl():177
+    org.apache.calcite.sql.validate.AbstractNamespace.validate():84
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace():947
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery():928
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom():2975
+    org.apache.drill.exec.planner.sql.SqlConverter$DrillValidator.validateFrom():265
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom():2960
+    org.apache.drill.exec.planner.sql.SqlConverter$DrillValidator.validateFrom():265
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateJoin():3011
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom():2969
+    org.apache.drill.exec.planner.sql.SqlConverter$DrillValidator.validateFrom():265
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateSelect():3219
+    org.apache.calcite.sql.validate.SelectNamespace.validateImpl():60
+    org.apache.calcite.sql.validate.AbstractNamespace.validate():84
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace():947
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery():928
+    org.apache.calcite.sql.SqlSelect.validate():226
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validateScopedExpression():903
+    org.apache.calcite.sql.validate.SqlValidatorImpl.validate():613
+    org.apache.drill.exec.planner.sql.SqlConverter.validate():189
+    org.apache.drill.exec.planner.sql.handlers.DefaultSqlHandler.validateNode():637
+    org.apache.drill.exec.planner.sql.handlers.DefaultSqlHandler.validateAndConvert():202
+    org.apache.drill.exec.planner.sql.handlers.ExplainHandler.getPlan():56
+    org.apache.drill.exec.planner.sql.DrillSqlWorker.getQueryPlan():146
+    org.apache.drill.exec.planner.sql.DrillSqlWorker.getPlan():84
+    org.apache.drill.exec.work.foreman.Foreman.runSQL():567
+    org.apache.drill.exec.work.foreman.Foreman.run():264
+    java.util.concurrent.ThreadPoolExecutor.runWorker():1149
+    java.util.concurrent.ThreadPoolExecutor$Worker.run():624
+    java.lang.Thread.run():748
