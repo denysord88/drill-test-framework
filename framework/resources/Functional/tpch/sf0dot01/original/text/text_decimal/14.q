@@ -9,9 +9,9 @@ create or replace view lineitem_decimal_14 as select cast(columns[0] as int) l_o
 select
   cast(100.00 * sum(case
     when p.p_type like 'PROMO%'
-      then cast(l.l_extendedprice as double) * (1 - cast(l.l_discount as double))
+      then l.l_extendedprice * (1 - l.l_discount)
     else 0
-  end) as double) / sum(cast(l.l_extendedprice as double) * (1 - cast(l.l_discount as double))) as promo_revenue
+  end) as double) / sum(l.l_extendedprice * (1 - l.l_discount)) as promo_revenue
 from
   lineitem_decimal_14 l,
   part_decimal_14 p
