@@ -1,0 +1,1 @@
+explain plan for select * from s3.tmp.`ppruning` where cAge > 20;
