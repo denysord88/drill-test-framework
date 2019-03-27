@@ -1,0 +1,23 @@
+{
+  "testId": "s3_file_types",
+  "type": "group",
+  "description": "Querying different file types from s3",
+  "submit-type": "jdbc",
+  "categories": [
+    "functional"
+  ],
+  "dependencies" : ["s3"],
+  "matrices": [
+    {
+      "query-file": ".*.sql",
+      "schema": "s3.tmp",
+      "output-format": "tsv",
+      "expected-file": ".*.e_tsv",
+      "verification-type": [
+        "in-memory"
+      ]
+    }
+  ],
+  "datasources": []
+}
+

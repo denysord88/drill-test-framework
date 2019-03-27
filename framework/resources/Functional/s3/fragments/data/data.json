@@ -1,0 +1,29 @@
+{
+  "testId": "drill_fragments_on_query_s3_data",
+  "type": "group",
+  "description": "Testing big files on the s3 storage with major and minor fragments",
+  "submit-type": "jdbc",
+  "categories": [
+    "functional"
+  ],
+  "dependencies" : ["s3"],
+  "matrices": [
+    {
+      "query-file": ".*.sql",
+      "schema": "s3.tmp",
+      "output-format": "tsv",
+      "expected-file": ".*.e_tsv",
+      "verification-type": [
+        "in-memory"
+      ]
+    }
+  ],
+  "datasources": [
+    {
+       "mode": "gen",
+       "src": "Datasources/s3/fragments/fragments.sh",
+       "dest": ""
+    }
+  ]
+}
+
